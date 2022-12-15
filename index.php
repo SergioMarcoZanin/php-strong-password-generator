@@ -1,3 +1,11 @@
+<?php
+include 'functions.php';
+if(!empty($_GET['length'])) {
+    $length = $_GET['length'];
+}
+
+$secure_password = generatePassword($length);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
