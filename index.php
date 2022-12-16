@@ -1,10 +1,10 @@
-<?php
-include 'functions.php';
-if(!empty($_GET['length'])) {
-    $length = $_GET['length'];
+<?php 
+session_start();
+include __DIR__ ."/functions.php";
+if(!empty($_GET["length"])){
+    $_SESSION['password']=randomPassword($_GET["length"]);
+    header("Location: http://localhost/php-strong-password-generator/password-generate.php");
 }
-
-$secure_password = generatePassword($length);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,6 @@ $secure_password = generatePassword($length);
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center text-secondary text-black">Strong Password Generator</h1>
         <h2 class="text-center text-grey">Genera una password sicura</h2>
         <div class="form-group my-3">
             <input type="text" class="form-control" id="text" placeholder="La tua password" value="<?php ?>">
